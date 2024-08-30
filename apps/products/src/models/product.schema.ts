@@ -7,9 +7,6 @@ export class ProductDocument extends AbstractDocument {
   timestamp: Date;
 
   @Prop()
-  brandId: string;
-
-  @Prop()
   name: string;
 
   @Prop()
