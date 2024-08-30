@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
-import { DatabaseModule } from '@app/common';
+import { DatabaseModule, LoggerModule } from '@app/common';
 import { ProductsRepository } from './products.repository';
 import { ProductDocument, ProductSchema } from './models/product.schema';
 
@@ -14,6 +14,7 @@ import { ProductDocument, ProductSchema } from './models/product.schema';
         schema: ProductSchema,
       },
     ]),
+    LoggerModule,
   ],
   controllers: [ProductsController],
   providers: [ProductsService, ProductsRepository],
