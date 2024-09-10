@@ -2,14 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductsRepository } from './products.repository';
+import { UserDto } from '@app/common';
 
 @Injectable()
 export class ProductsService {
   constructor(private readonly productRepository: ProductsRepository) {}
-  create(createProductDto: CreateProductDto) {
-    return this.productRepository.create({
+  async create(createProductDto: CreateProductDto, { _id: userId }: UserDto) {
+    return await this.productRepository.create({
       ...createProductDto,
       timestamp: new Date(),
+      userId,
     });
   }
 
