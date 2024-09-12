@@ -13,9 +13,12 @@ export class ProductsService {
     @Inject(PAYMENTS_SERVICES) private readonly paymentService: ClientProxy,
   ) {}
 
-  async create(createProductDto: CreateProductDto, { _id: userId }: UserDto) {
+  async create(
+    createProductDto: CreateProductDto,
+    { email, _id: userId }: UserDto,
+  ) {
     return await this.paymentService
-      .send('create_charge', createProductDto.charge)
+      .send('create_charge', { ...createProductDto.charge, email })
       .pipe(
         map((res) => {
           return this.productRepository.create({
