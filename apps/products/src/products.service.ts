@@ -4,31 +4,27 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { ProductsRepository } from './products.repository';
 import { PAYMENTS_SERVICES, UserDto } from '@app/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { map } from 'rxjs';
+//import { map } from 'rxjs';
 
 @Injectable()
 export class ProductsService {
   constructor(
     private readonly productRepository: ProductsRepository,
-    @Inject(PAYMENTS_SERVICES) private readonly paymentService: ClientProxy,
+    // @Inject(PAYMENTS_SERVICES) private readonly paymentService: ClientProxy,
   ) {}
 
-  async create(
-    createProductDto: CreateProductDto,
-    { email, _id: userId }: UserDto,
-  ) {
-    return await this.paymentService
-      .send('create_charge', { ...createProductDto.charge, email })
-      .pipe(
-        map((res) => {
-          return this.productRepository.create({
-            ...createProductDto,
-            timestamp: new Date(),
-            invoiceId: res.id,
-            userId,
-          });
-        }),
-      );
+  async create(createProductDto: CreateProductDto, { _id: userId }: UserDto) {
+    //return await this.paymentService;
+    //.send('create_charge', { ...createProductDto.charge, email })
+    // .pipe(
+    //   map((res) => {
+    return this.productRepository.create({
+      ...createProductDto,
+      timestamp: new Date(),
+      userId,
+    });
+    //   }),
+    // );
   }
 
   findAll() {
