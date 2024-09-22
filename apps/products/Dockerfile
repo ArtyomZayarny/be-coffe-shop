@@ -13,7 +13,7 @@ RUN yarn
 COPY apps/products apps/products
 COPY libs libs
 
-RUN yarn build
+RUN yarn build products
 
 FROM node:alpine as production
 
