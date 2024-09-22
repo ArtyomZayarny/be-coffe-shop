@@ -2,8 +2,7 @@ steps:
 #Products
   - name: 'gcr.io/cloud-builders/docker'
     args:
-    [
-      'build',
+    ['build',
       '-t',
       'us-east4-docker.pkg.dev/fine-doodad-436008-g8/products/production',
       '-f',
