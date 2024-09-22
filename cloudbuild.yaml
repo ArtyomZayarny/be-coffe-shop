@@ -1,11 +1,11 @@
 steps:
-  #Products
+
   - name: 'gcr.io/cloud-builders/docker'
     args:
     ['build','-t','us-east4-docker.pkg.dev/fine-doodad-436008-g8/products/production','-f','apps/products/DockerFile','.']
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push','us-east4-docker.pkg.dev/fine-doodad-436008-g8/products/production']
-    #Auth
+
   - name: 'gcr.io/cloud-builders/docker'
     args:
     [
@@ -22,7 +22,7 @@ steps:
       'push',
       'us-east4-docker.pkg.dev/fine-doodad-436008-g8/auth/production',
     ]
-    #Notifications
+
   - name: 'gcr.io/cloud-builders/docker'
     args:
     [
@@ -39,7 +39,7 @@ steps:
       'push',
       'us-east4-docker.pkg.dev/fine-doodad-436008-g8/notifications/production',
     ]
-    #Payments
+    
   - name: 'gcr.io/cloud-builders/docker'
     args:
     [
