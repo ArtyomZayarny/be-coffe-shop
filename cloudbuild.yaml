@@ -64,3 +64,5 @@ steps:
         'push',
         'us-east4-docker.pkg.dev/fine-doodad-436008-g8/payments/production',
       ]
+options:
+  logging: CLOUD_LOGGING_ONLY
