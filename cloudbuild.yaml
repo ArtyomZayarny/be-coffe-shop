@@ -7,7 +7,7 @@ steps:
         '-t',
         'us-east4-docker.pkg.dev/fine-doodad-436008-g8/products/production',
         '-f',
-        '/workspace/apps/products/DockerFile',
+        '/apps/products/DockerFile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
@@ -24,7 +24,7 @@ steps:
         '-t',
         'us-east4-docker.pkg.dev/fine-doodad-436008-g8/auth/production',
         '-f',
-        '/workspace/apps/auth/DockerFile',
+        '/apps/auth/DockerFile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
@@ -38,7 +38,7 @@ steps:
         '-t',
         'us-east4-docker.pkg.dev/fine-doodad-436008-g8/notifications/production',
         '-f',
-        '/workspace/apps/notifications/DockerFile',
+        '/apps/notifications/DockerFile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
@@ -55,7 +55,7 @@ steps:
         '-t',
         'us-east4-docker.pkg.dev/fine-doodad-436008-g8/payments/production',
         '-f',
-        '/workspace/apps/payments/DockerFile',
+        '/apps/payments/DockerFile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
